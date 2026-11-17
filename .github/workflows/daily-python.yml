@@ -1,0 +1,58 @@
+name: Daily Python Creations
+
+on:
+  schedule:
+    # Every day at 10:00 AM India Standard Time (04:30 UTC)
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/daily-python.yml"
+      - "scripts/daily_pipeline.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-python-creations
+  cancel-in-progress: false
+
+jobs:
+  create-test-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate next daily project
+        run: python scripts/daily_pipeline.py
+      - name: Validate every Python project
+        run: |
+          python - <<'PY'
+          import ast
+          from pathlib import Path
+          files = sorted(Path(".").glob("Day-*/main.py"))
+          if not files:
+              raise SystemExit("No project sources found")
+          for path in files:
+              ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+              print(f"Syntax OK: {path}")
+          PY
+      - name: Commit and push generated work
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Day-* README.md index.html
+          if git diff --cached --quiet; then
+            echo "No new project generated; nothing to commit."
+            exit 0
+          fi
+          git commit -m "Add next daily Python creation"
+          git push origin HEAD:main
