@@ -40,6 +40,11 @@ code=code.replace(/^from\s+turtle\s+import\s*\*\s*$/m,[
 'right = _pen.right',
 'end_fill = _pen.end_fill'
 ].join('\n'));
-}status.textContent='Running the actual Python Turtle code…';(Sk.TurtleGraphics||(Sk.TurtleGraphics={})).target=p.canvas;Sk.configure({output:function(){},read:function(x){if(Sk.builtinFiles===undefined||Sk.builtinFiles.files[x]===undefined)throw 'File not found: '+x;return Sk.builtinFiles.files[x];},__future__:Sk.python3});await Sk.misceval.asyncToPromise(function(){return Sk.importMainWithBody('<stdin>',false,code,true);});status.textContent='Finished — preview generated from the Python source.';}catch(error){status.textContent='Browser run failed: '+(error&&error.toString?error.toString():String(error));}}
+if(key==='radha'){
+code=code.replace(/^import\s+turtle\s*$/m,'import turtle\n_browser_screen = turtle.Screen()');
+code=code.replace(/\bturtle\.bgcolor\s*\(/g,'_browser_screen.bgcolor(');
+code=code.replace(/\bturtle\.title\s*\(/g,'_browser_screen.title(');
+code=code.replace(/\bturtle\.done\s*\(/g,'_browser_screen.done(');
+}}status.textContent='Running the actual Python Turtle code…';(Sk.TurtleGraphics||(Sk.TurtleGraphics={})).target=p.canvas;Sk.configure({output:function(){},read:function(x){if(Sk.builtinFiles===undefined||Sk.builtinFiles.files[x]===undefined)throw 'File not found: '+x;return Sk.builtinFiles.files[x];},__future__:Sk.python3});await Sk.misceval.asyncToPromise(function(){return Sk.importMainWithBody('<stdin>',false,code,true);});status.textContent='Finished — preview generated from the Python source.';}catch(error){status.textContent='Browser run failed: '+(error&&error.toString?error.toString():String(error));}}
 document.addEventListener('click',function(e){const run=e.target.closest('[data-run]');if(run){const key=run.dataset.run;document.getElementById('runner-'+key).classList.add('open');runProject(key);}const src=e.target.closest('[data-source]');if(src){document.getElementById('source-'+src.dataset.source).classList.toggle('open');}});
 </script></body></html>
