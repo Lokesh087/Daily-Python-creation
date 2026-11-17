@@ -13,6 +13,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 04 | [Neon Spiral](Day-04-Neon-Spiral/) | A vibrant geometric spiral drawn with a changing neon palette. |
 
+| 05 | [Golden Star](Day-05-Golden-Star/) | A golden five-point star drawn and filled with Python Turtle. |
+
 ## Run locally
 
 1. Install Python 3.
