@@ -9,6 +9,8 @@ A public collection of small, creative Python projects — one experiment at a t
 | 01 | [Heart Drawing](Day-01-Heart-Art/) | Draws a filled red heart with Python Turtle |
 | 02 | [Radha Krishna Art](Day-02-Radha-Krishna-Art/) | Creates a devotional Radha-Krishna illustration with Python Turtle |
 
+| 03 | [Blooming Flower](Day-03-Blooming-Flower/) | A colourful flower made from repeating Turtle petals. |
+
 ## Run locally
 
 1. Install Python 3.
