@@ -139,7 +139,7 @@ def main() -> None:
 """
     html = html.replace(marker, card + marker, 1)
     old = "radha:{file:'Day-02-Radha-Krishna-Art/main.py',canvas:'canvas-radha',status:'status-radha'}};"
-    new = old.replace("}};", f"}}, {key}:{{file:'{folder.name}/main.py',canvas:'canvas-{key}',status:'status-{key}'}}}};")
+    new = old.replace("}};", f"}}, '{key}':{{file:'{folder.name}/main.py',canvas:'canvas-{key}',status:'status-{key}'}}}};")
     if old not in html:
         raise RuntimeError("Could not find browser project registry insertion point.")
     html = html.replace(old, new, 1)
