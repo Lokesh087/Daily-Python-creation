@@ -17,6 +17,8 @@ A public collection of small, creative Python projects — one experiment at a t
 | 06 | [Snowflake Mandala](Day-06-Snowflake-Mandala/) | A symmetrical icy mandala made from repeating geometric branches. |
 | 07 | [Rainbow Polygon](Day-07-Rainbow-Polygon/) | A colourful layered polygon pattern made from rotating shapes. |
 
+| 08 | [Petal Mandala 08](Day-08-Petal-Mandala-08/) | A unique 26-petal mandala variation generated for Day 08. |
+
 ## Run locally
 
 1. Install Python 3.
