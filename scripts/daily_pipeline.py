@@ -102,16 +102,99 @@ turtle.done()
 '''},
 ]
 
+def extra_project(day: int) -> dict[str, str]:
+    """Generate an endless sequence of parameterised, distinct Turtle studies."""
+    palette = ["#ff5c8a", "#ffb347", "#7bdff2", "#b2f7ef", "#cdb4db", "#f4a261"]
+    a, b, c = palette[day % 6], palette[(day + 2) % 6], palette[(day + 4) % 6]
+    mode = day % 4
+    if mode == 0:
+        title, slug, emoji = f"Petal Mandala {day:02d}", f"Petal-Mandala-{day:02d}", "🌺"
+        desc = f"A unique {18 + day % 13}-petal mandala variation generated for Day {day:02d}."
+        body = f'''import turtle
+screen = turtle.Screen()
+screen.setup(650, 580)
+screen.bgcolor("#101827")
+screen.title("{title}")
+pen = turtle.Turtle()
+pen.speed(0)
+pen.pensize(2)
+pen.color("{a}")
+for _ in range({18 + day % 13}):
+    pen.circle({55 + day % 35}, 60)
+    pen.left(120)
+    pen.circle({55 + day % 35}, 60)
+    pen.left({360 // (18 + day % 13)})
+pen.hideturtle()
+turtle.done()
+'''
+    elif mode == 1:
+        title, slug, emoji = f"Orbit Spiral {day:02d}", f"Orbit-Spiral-{day:02d}", "🪐"
+        desc = f"A colourful orbit spiral with Day {day:02d} movement settings."
+        body = f'''import turtle
+screen = turtle.Screen()
+screen.setup(650, 580)
+screen.bgcolor("#090b1a")
+screen.title("{title}")
+pen = turtle.Turtle()
+pen.speed(0)
+pen.pensize(2)
+colors = ["{a}", "{b}", "{c}"]
+for i in range({70 + day % 45}):
+    pen.pencolor(colors[i % len(colors)])
+    pen.forward(i * {2 + day % 4})
+    pen.right({87 + day % 9})
+pen.hideturtle()
+turtle.done()
+'''
+    elif mode == 2:
+        title, slug, emoji = f"Layered Geometry {day:02d}", f"Layered-Geometry-{day:02d}", "🔷"
+        desc = f"A layered polygon study with {3 + day % 6} sides and custom colours."
+        body = f'''import turtle
+screen = turtle.Screen()
+screen.setup(650, 580)
+screen.bgcolor("#111827")
+screen.title("{title}")
+pen = turtle.Turtle()
+pen.speed(0)
+pen.pensize(2)
+sides = {3 + day % 6}
+for layer in range({10 + day % 12}):
+    pen.pencolor(["{a}", "{b}", "{c}"][layer % 3])
+    for _ in range(sides):
+        pen.forward({75 + day % 50} + layer * 3)
+        pen.left(360 / sides)
+    pen.left({13 + day % 29})
+pen.hideturtle()
+turtle.done()
+'''
+    else:
+        title, slug, emoji = f"Rainbow Rosette {day:02d}", f"Rainbow-Rosette-{day:02d}", "🌈"
+        desc = f"A rotating rosette built from {12 + day % 20} colourful loops."
+        body = f'''import turtle
+screen = turtle.Screen()
+screen.setup(650, 580)
+screen.bgcolor("#171323")
+screen.title("{title}")
+pen = turtle.Turtle()
+pen.speed(0)
+pen.pensize(2)
+colors = ["{a}", "{b}", "{c}"]
+for i in range({12 + day % 20}):
+    pen.pencolor(colors[i % 3])
+    pen.circle({45 + day % 35}, 120)
+    pen.left({360 // (12 + day % 20)})
+pen.hideturtle()
+turtle.done()
+'''
+    return {"title": title, "slug": slug, "emoji": emoji, "description": desc, "code": body}
+
 def main() -> None:
     days = [int(m.group(1)) for p in ROOT.glob("Day-*") if (m := re.match(r"Day-(\d+)-", p.name))]
     day = max(days, default=0) + 1
     index = day - 3
     if index < 0:
         index = 0
-    if index >= len(PROJECTS):
-        print("Daily project queue is complete; no placeholder commit created.")
-        return
-    item = PROJECTS[index]
+    item = PROJECTS[index] if index < len(PROJECTS) else extra_project(day)
     folder = ROOT / f"Day-{day:02d}-{item['slug']}"
     folder.mkdir(parents=True, exist_ok=False)
     ast.parse(item["code"])
