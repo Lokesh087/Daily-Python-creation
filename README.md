@@ -11,6 +11,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 03 | [Blooming Flower](Day-03-Blooming-Flower/) | A colourful flower made from repeating Turtle petals. |
 
+| 04 | [Neon Spiral](Day-04-Neon-Spiral/) | A vibrant geometric spiral drawn with a changing neon palette. |
+
 ## Run locally
 
 1. Install Python 3.
