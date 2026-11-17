@@ -28,15 +28,17 @@ const projects={heart:{file:'Day-01-Heart-Art/main.py',canvas:'canvas-heart',sta
 async function runProject(key){const p=projects[key],status=document.getElementById(p.status),canvas=document.getElementById(p.canvas);status.textContent='Loading original Python source…';canvas.innerHTML='';try{const response=await fetch(p.file,{cache:'no-store'});if(!response.ok)throw new Error('Could not load Python source.');const originalCode=await response.text();document.getElementById('source-'+key).textContent=originalCode;let code=originalCode;if(key==='heart' && /^from\s+turtle\s+import\s*\*/m.test(code)){
 code=code.replace(/^from\s+turtle\s+import\s*\*\s*$/m,[
 'import turtle as _turtle',
-'bgcolor = _turtle.bgcolor',
-'color = _turtle.color',
-'begin_fill = _turtle.begin_fill',
-'pensize = _turtle.pensize',
-'left = _turtle.left',
-'forward = _turtle.forward',
-'circle = _turtle.circle',
-'right = _turtle.right',
-'end_fill = _turtle.end_fill'
+'_screen = _turtle.Screen()',
+'_pen = _turtle.Turtle()',
+'bgcolor = _screen.bgcolor',
+'color = _pen.color',
+'begin_fill = _pen.begin_fill',
+'pensize = _pen.pensize',
+'left = _pen.left',
+'forward = _pen.forward',
+'circle = _pen.circle',
+'right = _pen.right',
+'end_fill = _pen.end_fill'
 ].join('\n'));
 }status.textContent='Running the actual Python Turtle code…';(Sk.TurtleGraphics||(Sk.TurtleGraphics={})).target=p.canvas;Sk.configure({output:function(){},read:function(x){if(Sk.builtinFiles===undefined||Sk.builtinFiles.files[x]===undefined)throw 'File not found: '+x;return Sk.builtinFiles.files[x];},__future__:Sk.python3});await Sk.misceval.asyncToPromise(function(){return Sk.importMainWithBody('<stdin>',false,code,true);});status.textContent='Finished — preview generated from the Python source.';}catch(error){status.textContent='Browser run failed: '+(error&&error.toString?error.toString():String(error));}}
 document.addEventListener('click',function(e){const run=e.target.closest('[data-run]');if(run){const key=run.dataset.run;document.getElementById('runner-'+key).classList.add('open');runProject(key);}const src=e.target.closest('[data-source]');if(src){document.getElementById('source-'+src.dataset.source).classList.toggle('open');}});
