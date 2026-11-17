@@ -138,11 +138,11 @@ def main() -> None:
 <article class="card"><div class="art"><div class="generated-art">{item['emoji']}</div></div><div class="cardbody"><div class="day">Day {day:02d} · Turtle Graphics</div><h2>{item['title']}</h2><p>{item['description']}</p><div class="links"><button class="runbtn" data-run="{key}">▶ Run &amp; Preview</button><a href="{folder.name}/main.py">View Python source ↗</a><a href="https://github.com/Lokesh087/Daily-Python-creation/tree/main/{folder.name}">GitHub folder ↗</a></div></div><section class="runner" id="runner-{key}"><div class="runnerbar"><span class="runstatus" id="status-{key}">Ready to run the original Python program.</span><button class="smallbtn" data-source="{key}">View Code</button></div><div class="turtle-stage" id="canvas-{key}"></div><pre class="source" id="source-{key}"></pre></section></article>
 """
     html = html.replace(marker, card + marker, 1)
-    old = "radha:{file:'Day-02-Radha-Krishna-Art/main.py',canvas:'canvas-radha',status:'status-radha'}};"
-    new = old.replace("}};", f"}}, '{key}':{{file:'{folder.name}/main.py',canvas:'canvas-{key}',status:'status-{key}'}}}};")
-    if old not in html:
-        raise RuntimeError("Could not find browser project registry insertion point.")
-    html = html.replace(old, new, 1)
+    registry_pattern = r"(const projects=\{.*?)(\};\s*async function runProject)"
+    registry_entry = f", '{key}':{{file:'{folder.name}/main.py',canvas:'canvas-{key}',status:'status-{key}'}}"
+    html, replacements = re.subn(registry_pattern, lambda m: m.group(1) + registry_entry + m.group(2), html, count=1, flags=re.S)
+    if replacements != 1:
+        raise RuntimeError("Could not append the project to the browser runner registry.")
     if ".generated-art" not in html:
         html = html.replace(".art svg{width:min(90%,360px);height:90%;overflow:visible}", ".art svg{width:min(90%,360px);height:90%;overflow:visible}.generated-art{font-size:104px;filter:drop-shadow(0 10px 24px #a78bfa66)}", 1)
     index_path.write_text(html, encoding="utf-8")
