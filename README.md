@@ -1,0 +1,38 @@
+# Daily Python Creations
+
+A public collection of small, creative Python projects — one experiment at a time.
+
+## Projects
+
+| Day | Project | What it does |
+|---|---|---|
+| 01 | [Heart Drawing](Day-01-Heart-Art/) | Draws a filled red heart with Python Turtle |
+| 02 | [Radha Krishna Art](Day-02-Radha-Krishna-Art/) | Creates a devotional Radha-Krishna illustration with Python Turtle |
+
+## Run locally
+
+1. Install Python 3.
+2. Open a project folder.
+3. Run `python main.py`.
+
+Python's Turtle module opens a graphics window, so run these scripts on a desktop environment with Tk support.
+
+## Browser showcase
+
+The repository root contains a lightweight static showcase page. It is designed for deployment on Vercel or GitHub Pages. The visual previews are browser-friendly illustrations; the original Python Turtle source remains in each project folder.
+
+## Repository structure
+
+```
+Daily-Python-Creations/
+├── index.html
+├── Day-01-Heart-Art/
+│   ├── main.py
+│   └── README.md
+└── Day-02-Radha-Krishna-Art/
+    ├── main.py
+    └── README.md
+```
+
+---
+Created by [Lokesh087](https://github.com/Lokesh087).
