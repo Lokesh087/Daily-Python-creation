@@ -21,7 +21,7 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 09 | [Orbit Spiral 09](Day-09-Orbit-Spiral-09/) | A colourful orbit spiral with Day 09 movement settings. |
 
-| 10 | [Aurora Waves](Day-10-Aurora-Waves/) | Flowing northern-lights inspired waves drawn with Python Turtle. |
+| 10 | [Cosmic Lotus](Day-10-Aurora-Waves/) | A glowing layered lotus mandala with orbit rings and stars. |
 
 ## Run locally
 
