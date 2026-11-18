@@ -1,6 +1,6 @@
-# Day 10 — Aurora Waves
+# Day 10 — Cosmic Lotus
 
-A flowing, colourful northern-lights inspired pattern drawn with Python Turtle.
+A glowing, layered lotus mandala with colourful petals, orbit rings and tiny stars, created using Python Turtle.
 
 ## Run locally
 
