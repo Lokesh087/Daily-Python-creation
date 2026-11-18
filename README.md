@@ -19,6 +19,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 08 | [Petal Mandala 08](Day-08-Petal-Mandala-08/) | A unique 26-petal mandala variation generated for Day 08. |
 
+| 09 | [Orbit Spiral 09](Day-09-Orbit-Spiral-09/) | A colourful orbit spiral with Day 09 movement settings. |
+
 ## Run locally
 
 1. Install Python 3.
