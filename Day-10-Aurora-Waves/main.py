@@ -1,30 +1,69 @@
 import turtle
+import math
 
 screen = turtle.Screen()
-screen.setup(650, 580)
-screen.bgcolor("#071525")
-screen.title("Aurora Waves")
+screen.setup(760, 680)
+screen.bgcolor("#090b1f")
+screen.title("Cosmic Lotus")
+screen.tracer(0)
 
 pen = turtle.Turtle()
-pen.speed(0)
-pen.pensize(3)
 pen.hideturtle()
+pen.speed(0)
+pen.pensize(2)
 
-colors = ["#55e6c1", "#48dbfb", "#a29bfe", "#fd79a8", "#feca57"]
+petal_colors = [
+    "#ff5ca8", "#ff79c6", "#bd93f9",
+    "#8be9fd", "#64dfdf", "#f1a7fe"
+]
 
-for band in range(5):
+def draw_petal(radius, color):
+    pen.color(color)
+    pen.begin_fill()
+    pen.circle(radius, 60)
+    pen.left(120)
+    pen.circle(radius, 60)
+    pen.left(120)
+    pen.end_fill()
+
+# Layered lotus petals
+for layer in range(4):
+    radius = 105 - layer * 17
+    for i in range(12):
+        pen.penup()
+        pen.goto(0, 0)
+        pen.setheading(i * 30 + layer * 15)
+        pen.forward(layer * 9)
+        pen.pendown()
+        draw_petal(radius, petal_colors[(i + layer) % len(petal_colors)])
+
+# Glowing centre
+pen.penup()
+pen.goto(0, -12)
+pen.dot(54, "#ffe08a")
+pen.goto(0, -5)
+pen.dot(28, "#fff4c2")
+
+# Fine orbit rings
+for radius, color in [(205, "#6c63ff"), (225, "#42d6c7"), (245, "#bd93f9")]:
     pen.penup()
-    pen.goto(-260, 100 - band * 48)
+    pen.goto(0, -radius)
     pen.setheading(0)
     pen.pendown()
-    pen.pencolor(colors[band])
-    for step in range(52):
-        pen.forward(10)
-        pen.left(5 if (step + band) % 2 == 0 else -5)
+    pen.pencolor(color)
+    pen.pensize(2)
+    pen.circle(radius)
 
-for x in range(-220, 261, 55):
+# Small stars around the flower
+stars = [
+    (-285, 210), (-235, -185), (270, 190), (300, -120),
+    (-315, 20), (185, 275), (80, -285), (-90, 285),
+    (320, 55), (-170, 120), (145, -220), (-40, -300)
+]
+for i, (x, y) in enumerate(stars):
     pen.penup()
-    pen.goto(x, 190 + (x % 3) * 7)
-    pen.dot(4, "#ffffff")
+    pen.goto(x, y)
+    pen.dot(5 + (i % 3) * 2, ["#ffffff", "#8be9fd", "#ffb8e8"][i % 3])
 
+screen.update()
 turtle.done()
