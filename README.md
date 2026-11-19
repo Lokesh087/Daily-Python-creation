@@ -23,6 +23,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 10 | [Cosmic Lotus](Day-10-Aurora-Waves/) | A glowing layered lotus mandala with orbit rings and stars. |
 
+| 11 | [Rainbow Rosette 11](Day-11-Rainbow-Rosette-11/) | A rotating rosette built from 23 colourful loops. |
+
 ## Run locally
 
 1. Install Python 3.
