@@ -8,11 +8,8 @@ on:
     - cron: "30 5 * * *"
     - cron: "0 6 * * *"
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - ".github/workflows/daily-python.yml"
-      - "scripts/daily_pipeline.py"
+  repository_dispatch:
+    types: [daily-python]
 
 permissions:
   contents: write
