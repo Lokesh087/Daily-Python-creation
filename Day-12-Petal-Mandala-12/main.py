@@ -1,0 +1,16 @@
+import turtle
+screen = turtle.Screen()
+screen.setup(650, 580)
+screen.bgcolor("#101827")
+screen.title("Petal Mandala 12")
+pen = turtle.Turtle()
+pen.speed(0)
+pen.pensize(2)
+pen.color("#ff5c8a")
+for _ in range(30):
+    pen.circle(67, 60)
+    pen.left(120)
+    pen.circle(67, 60)
+    pen.left(12)
+pen.hideturtle()
+turtle.done()
