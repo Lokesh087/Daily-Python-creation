@@ -204,6 +204,18 @@ def main() -> None:
         "## Run locally\n\nRun python main.py with Python 3 and Turtle/Tk graphics support.\n",
         encoding="utf-8",
     )
+    (folder / "DESIGN_NOTES.md").write_text(
+        f"# Design Notes — Day {day:02d}\\n\\n"
+        f"## Concept\\n{item['description']}\\n\\n"
+        "## Implementation\\n"
+        "- Uses Python Turtle for vector-style drawing.\\n"
+        "- Uses loops and turns to build a repeatable geometric pattern.\\n"
+        "- Keeps drawing parameters and colours easy to customise.\\n\\n"
+        "## Try changing\\n"
+        "- Adjust colours to create a different mood.\\n"
+        "- Change loop counts, angles, or distances to explore new patterns.\\n",
+        encoding="utf-8",
+    )
     readme = ROOT / "README.md"
     text = readme.read_text(encoding="utf-8")
     marker = "## Run locally"
