@@ -3,13 +3,13 @@
 ## Locked target and honest display constraints
 
 - Contribution-graph wordmark: **LOKESH PARGAIN**
-- Full professional identity line: **LOKESH PARGAIN AI ENGINEER**
+- No separate profile banner or README artwork; the intended visual belongs only in the yearly GitHub contribution calendar.
 - Target review date: **December 2027**
 - Visual direction: one continuous left-to-right wordmark; dark cells form letters and lighter cells are the surrounding field.
 
 GitHub's contribution calendar is a rolling view of about 52 weeks by 7 weekdays. It is not a free-form canvas: each square represents one date, and its shade depends on GitHub's contribution-count buckets. A date cannot be assigned an arbitrary colour.
 
-The compact 3×5 pixel lettering below is designed to fit **LOKESH PARGAIN** across 52 columns. The complete phrase **LOKESH PARGAIN AI ENGINEER** is too wide to remain legible as one horizontal line in a single 52-week calendar. It will therefore be used in the profile README/banner, while the contribution calendar carries the shorter name wordmark. This keeps the graph physically feasible without stacking text.
+The compact 3×5 pixel lettering below is designed to fit **LOKESH PARGAIN** across 52 columns. The longer phrase **LOKESH PARGAIN AI ENGINEER** is too wide to remain legible as one horizontal line in a single 52-week calendar. No banner will be used as a substitute. The current graph plan therefore uses **LOKESH PARGAIN** only; adding the role would require choosing a shorter replacement phrase that fits the 52-week width.
 
 ## 7-row × 52-column concept map
 
@@ -39,7 +39,7 @@ The compact 3×5 pixel lettering below is designed to fit **LOKESH PARGAIN** acr
 
 ## Delivery milestones
 
-- **Nov–Dec 2026:** preserve this map, validate account attribution and the daily workflow, and publish the full phrase in the profile README.
+- **Nov–Dec 2026:** preserve this map and validate account attribution and the daily workflow. Keep all visual identity work inside the contribution calendar; do not add a separate profile banner.
 - **Jan–Mar 2027:** use real project milestones to build a consistent contribution history; review the visible graph monthly.
 - **Apr–Jun 2027:** assess whether the visible 52-week graph is resembling the intended wordmark; adjust the compact font/map if needed.
 - **Jul–Sep 2027:** continue substantive work and check the rolling-window alignment.
