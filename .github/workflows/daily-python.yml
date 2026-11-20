@@ -74,15 +74,35 @@ jobs:
         run: |
           TZ=Asia/Kolkata date +%F > .github/daily-run-date.txt
 
-      - name: Commit and push generated work
+      - name: Create five meaningful commits and push
         if: steps.daily_guard.outputs.skip != 'true'
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Day-* README.md index.html .github/daily-run-date.txt
-          if git diff --cached --quiet; then
-            echo "No generated changes; nothing to commit."
-            exit 0
+
+          project_dir="$(find . -maxdepth 1 -type d -name 'Day-*' | sort -V | tail -n 1)"
+          if [ -z "$project_dir" ]; then
+            echo "Generated project folder not found."
+            exit 1
           fi
-          git commit -m "Add next daily Python creation"
+
+          commit_group() {
+            message="$1"
+            shift
+            git add "$@"
+            if ! git diff --cached --quiet; then
+              git commit -m "$message"
+            else
+              echo "No staged changes for: $message"
+            fi
+          }
+
+          day="$(basename "$project_dir" | cut -d '-' -f 2)"
+          commit_group "Add Day $day Python artwork" "$project_dir/main.py"
+          commit_group "Document Day $day project" "$project_dir/README.md"
+          commit_group "Add Day $day design notes" "$project_dir/DESIGN_NOTES.md"
+          commit_group "Update daily project catalogue" README.md
+          commit_group "Publish Day $day showcase and completion marker" index.html .github/daily-run-date.txt
+
           git push origin HEAD:main
