@@ -25,6 +25,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 11 | [Rainbow Rosette 11](Day-11-Rainbow-Rosette-11/) | A rotating rosette built from 23 colourful loops. |
 
+| 12 | [Petal Mandala 12](Day-12-Petal-Mandala-12/) | A unique 30-petal mandala variation generated for Day 12. |
+
 ## Run locally
 
 1. Install Python 3.
