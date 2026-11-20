@@ -17,6 +17,7 @@ The compact 3×5 pixel lettering below is designed to fit **LOKESH PARGAIN** acr
 - `.` = background cell (ordinary genuine contribution activity)
 - The five glyph rows are vertically centered in the seven weekday rows.
 - Columns run from left to right as weeks progress.
+- The automation maps the grid to dates from **2027-01-03 through 2028-01-01** (Sunday-first, 52 complete weeks). The contribution graph is rolling, so we will re-check alignment as the visible window moves.
 
 ```text
 ....................................................
@@ -31,8 +32,8 @@ The compact 3×5 pixel lettering below is designed to fit **LOKESH PARGAIN** acr
 ## Contribution rules
 
 1. Keep daily work genuine: code, tests, documentation, bug fixes, refactoring, and useful project improvements.
-2. On dates that map to `#`, prioritize a larger meaningful deliverable where naturally available. Do not manufacture empty commits, backdate activity, or split trivial edits just to manipulate shades.
-3. On `.` dates, continue normal work. Never create low-value commits just to fill a square.
+2. From **2027-01-03**, the workflow uses five separate, meaningful project commits on mapped `#` dates and one consolidated meaningful project commit on mapped `.` dates. The five parts are source code, project README, design notes, repository catalogue, and website showcase/completion marker.
+3. Before **2027-01-03**, the existing five-part daily project commit structure continues. No empty commits, backdated activity, or trivial edits are created just to manipulate shades.
 4. GitHub controls contribution thresholds and qualifying activity. The map is a design target, not a guarantee that a chosen commit count will produce a particular green shade.
 5. The calendar rolls forward. We must refresh the date-to-cell mapping periodically; a one-time schedule cannot permanently pin letters to fixed screen positions.
 
@@ -47,4 +48,4 @@ The compact 3×5 pixel lettering below is designed to fit **LOKESH PARGAIN** acr
 
 ## Automation status
 
-This file records the design only. It does **not** change the daily workflow, create commits on a date schedule, or guarantee dark/light shades. The existing daily pipeline and its five-commit grouping remain separate; GitHub may still show only one calendar square per date, with a darker shade based on that date's qualifying contribution count.
+The workflow now reads the pixel map for the current IST date. During the mapped 2027 period it makes five meaningful commits on letter cells and one consolidated meaningful commit on background cells. Every successful run still creates a single date's activity; multiple commits do not create multiple calendar squares. The actual shade is controlled by GitHub's thresholds and qualifying-contribution rules, so the visual result must be checked on the live profile and cannot be guaranteed by a fixed commit count.
