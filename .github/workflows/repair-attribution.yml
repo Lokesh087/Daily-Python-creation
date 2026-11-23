@@ -28,6 +28,7 @@ jobs:
           EXPECTED_BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
           TARGET_EMAIL="pargainlokesh5@gmail.com"
 
+          git checkout -B main origin/main
           git cat-file -e "${BASE}^{commit}"
           git merge-base --is-ancestor "$BASE" origin/main
 
@@ -56,7 +57,7 @@ jobs:
           '
 
           old_head="$(git rev-parse origin/main)"
-          git filter-branch -f --env-filter "$FILTER" "$BASE..main"
+          git filter-branch -f --env-filter "$FILTER" -- "$BASE..main"
           new_head="$(git rev-parse main)"
 
           if [ "$old_head" = "$new_head" ]; then
