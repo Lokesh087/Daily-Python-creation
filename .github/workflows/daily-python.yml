@@ -78,8 +78,13 @@ jobs:
         if: steps.daily_guard.outputs.skip != 'true'
         shell: bash
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Attribute generated commits to the repository owner's verified GitHub email.
+          # GitHub only counts these on the contribution graph if this email is verified
+          # on the Lokesh087 account and the commits land on the default branch.
+          git config user.name "Lokesh Pargain"
+          git config user.email "pargainlokesh5@gmail.com"
+          git config --global user.name "Lokesh Pargain"
+          git config --global user.email "pargainlokesh5@gmail.com"
 
           project_dir="$(find . -maxdepth 1 -type d -name 'Day-*' | sort -V | tail -n 1)"
           if [ -z "$project_dir" ]; then
