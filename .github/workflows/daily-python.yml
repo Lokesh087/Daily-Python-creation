@@ -7,6 +7,8 @@ on:
     - cron: "0 5 * * *"
     - cron: "30 5 * * *"
     - cron: "0 6 * * *"
+    # Late fallback: 6:00 PM IST, in case GitHub delays earlier scheduled events.
+    - cron: "30 12 * * *"
   workflow_dispatch:
   repository_dispatch:
     types: [daily-python]
