@@ -33,7 +33,7 @@ A public collection of small, creative Python projects — one experiment at a t
 | 13 | [Orbit Spiral 13](Day-13-Orbit-Spiral-13/) | A colourful orbit spiral with Day 13 movement settings. |
 
 | 14 | [Layered Geometry 14](Day-14-Layered-Geometry-14/) | A layered polygon study with 5 sides and custom colours. |
-
+|---|---|---|
 ## Run locally
 
 1. Install Python 3.
