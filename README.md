@@ -7,6 +7,7 @@ A public collection of small, creative Python projects — one experiment at a t
 | Day | Project | What it does |
 |---|---|---|
 | 01 | [Heart Drawing](Day-01-Heart-Art/) | Draws a filled red heart with Python Turtle |
+
 | 02 | [Radha Krishna Art](Day-02-Radha-Krishna-Art/) | Creates a devotional Radha-Krishna illustration with Python Turtle |
 
 | 03 | [Blooming Flower](Day-03-Blooming-Flower/) | A colourful flower made from repeating Turtle petals. |
@@ -14,7 +15,9 @@ A public collection of small, creative Python projects — one experiment at a t
 | 04 | [Neon Spiral](Day-04-Neon-Spiral/) | A vibrant geometric spiral drawn with a changing neon palette. |
 
 | 05 | [Golden Star](Day-05-Golden-Star/) | A golden five-point star drawn and filled with Python Turtle. |
+
 | 06 | [Snowflake Mandala](Day-06-Snowflake-Mandala/) | A symmetrical icy mandala made from repeating geometric branches. |
+
 | 07 | [Rainbow Polygon](Day-07-Rainbow-Polygon/) | A colourful layered polygon pattern made from rotating shapes. |
 
 | 08 | [Petal Mandala 08](Day-08-Petal-Mandala-08/) | A unique 26-petal mandala variation generated for Day 08. |
