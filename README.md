@@ -25,6 +25,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 16 | [Petal Mandala 16](Day-16-Petal-Mandala-16/) | A unique 21-petal mandala variation generated for Day 16. |
 
+| 17 | [Orbit Spiral 17](Day-17-Orbit-Spiral-17/) | A colourful orbit spiral with Day 17 movement settings. |
+
 ## Run locally
 
 1. Install Python 3.
