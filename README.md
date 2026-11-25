@@ -27,6 +27,8 @@ A public collection of small, creative Python projects — one experiment at a t
 
 | 17 | [Orbit Spiral 17](Day-17-Orbit-Spiral-17/) | A colourful orbit spiral with Day 17 movement settings. |
 
+| 18 | [Layered Geometry 18](Day-18-Layered-Geometry-18/) | A layered polygon study with 3 sides and custom colours. |
+
 ## Run locally
 
 1. Install Python 3.
